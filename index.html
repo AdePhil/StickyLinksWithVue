@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sticky Links</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+</head>
+
+<body>
+
+  <header>
+    <h1>Hey there!🎄</h1>
+    <p>paste your links here and copy them back when needed.</p>
+  </header>
+
+  <div class="wrapper" id="app">
+    <div>
+      <img src="img/stickyimage.png" alt="sticky image">
+      <h2>STICKY LINKS</h2>
+    </div>
+    <p></p>
+    <ul class="links">
+      <li v-for="(link,i) in links" :key="i" class="items">
+        <span class="fa fa-star " :data-star="i"></span>
+        <label :for="link.text">{{link.text}}</label>
+        <span :data-index="i" class="fa fa-close options" @click="close(i)"></span>
+        <span :data-index="i" class="fa fa-external-link options" @click="openInNewTab(i)"></span>
+      </li>
+    </ul>
+    <form class="add-items" @submit="populateLinks">
+      <div class="input-group">
+        <p class="multiple-link-error">This links already exist!</p>
+        <input type="text" name="linkTxt" placeholder="paste link.." required id="linkTxt" v-model="text">
+        <div class="error"><i class="fa fa-info-circle"></i>Please enter a correct link</div>
+        <input type="submit" value="+ Add Link">
+      </div>
+      <div>
+        <input type="button" class="delete-all" value="Delete All">
+      </div>
+    </form>
+  </div>
+
+
+  <!-- <script src="js/main.js"></script> -->
+  <script src="js/vue.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
