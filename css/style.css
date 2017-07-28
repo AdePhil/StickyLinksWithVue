@@ -153,7 +153,7 @@ input[type="submit"], input[type="button"] {
   color: #ccc;
 }
 
-[data-star^="star"]::after {
+/*[data-star^="star"]::after {
   position: absolute;
   color: #00cc00;
   content: '\f005';
@@ -162,6 +162,16 @@ input[type="submit"], input[type="button"] {
   overflow: hidden;
   top: 0;
   left: 0;
+}*/
+
+.starRating{
+  position: absolute;
+  color: #00cc00;
+  width: 0%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  margin:0;
 }
 
 img {
