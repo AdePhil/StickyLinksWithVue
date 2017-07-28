@@ -11,8 +11,6 @@
 
 <body>
 
-  <label :for="link.text">{{link.text}}</label>
-  <span :data-index="i" class="fa fa-close options" @click="close(i)"></span>
 
   <div class="container" id="app">
     <header>
@@ -37,7 +35,7 @@
       </ul>
       <form class="add-items" @submit="populateLinks">
         <div class="input-group">
-          <p class="multiple-link-error">This links already exist!</p>
+          <p v-if="duplicateLinks" class="multiple-link-error">This links already exist!</p>
           <input   @focus = "urlError = false" type="text" name="linkTxt" placeholder="paste link.." required id="linkTxt" v-model="text">
           <template v-if="urlError">
             <div class="error"><i class="fa fa-info-circle"></i>Please enter a correct link</div>

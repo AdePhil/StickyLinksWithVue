@@ -4,7 +4,8 @@ new Vue({
     links: JSON.parse(localStorage.getItem('links')) || [],
     text:"",
     starIncrement:20,
-    urlError: false
+    urlError: false,
+    duplicateLinks: false
   },
   methods:{
 
@@ -15,6 +16,14 @@ new Vue({
           this.urlError = true;
           return;
         }
+        const linkIsAlreadyPresent = this.links.some(link => (link.text == this.text));
+
+        //exit if link is already present
+        if (linkIsAlreadyPresent) {
+          this.duplicateLinks = true;
+          return;
+        }
+
         const link = {
           text:this.text,
           timesClicked: 0
@@ -36,7 +45,6 @@ new Vue({
     close: function(index){
       this.links.splice(index,1);
       localStorage.setItem('links', JSON.stringify(this.links));
-      console.log(this.links);
     },
     deleteAll: function(){
       this.links = [];
