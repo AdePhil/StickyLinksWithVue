@@ -202,7 +202,8 @@ img {
   justify-content: center;
   padding: 2px 4px;
   font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-  display: none;
+  display: flex;
+  box-shadow: 0 1.5px 3px 0.5px rgba(0,0,0,0.18);
 }
 
 .error::before {
